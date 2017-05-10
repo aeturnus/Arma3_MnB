@@ -1,3 +1,4 @@
+/*
 PlayerBattleUnit removeAllEventHandlers "killed";
 selectPlayer PlayerUnit;
 deleteVehicle PlayerBattleUnit;
@@ -11,3 +12,5 @@ deleteGroup PlayerBattleGroup;
   deleteVehicle _x;
 } forEach units AIBattleGroup;
 deleteGroup AIBattleGroup;
+*/
+BattleActive = false;
