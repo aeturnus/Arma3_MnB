@@ -1,3 +1,5 @@
+SurvivalCheck = compile preprocessFile "SurvivalCheck.sqf";
+
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
 
@@ -20,18 +22,17 @@ PlayerBattleUnit forceAddUniform "U_C_Poor_2"; for "_i" from 1 to 2 do {PlayerBa
 PlayerBattleUnit addVest "V_BandollierB_cbr"; for "_i" from 1 to 6 do {PlayerBattleUnit addItemToVest "30Rnd_762x39_Mag_F";};
 PlayerBattleUnit addWeapon "arifle_AKM_F"; PlayerBattleUnit linkItem "ItemMap"; PlayerBattleUnit linkItem "ItemCompass"; PlayerBattleUnit linkItem "ItemWatch"; PlayerBattleUnit linkItem "ItemRadio";
 
-for "_i" from 1 to 14 do
+for "_i" from 1 to 4 do
 {
   _unit = PlayerBattleGroup createUnit ["C_man_casual_1_F", getMarkerPos "BattleZonePlayer", [], 0, "FORM"];
   _unit addEventHandler ["killed", {
-        _rand = random [0,0.5,1];
-        if(_rand < .75) then {
+        if(!([_this select 0, 1] call SurvivalCheck)) then {
           systemChat format ["%1 killed by %2", _this select 0, _this select 1];
           PlayerBattleDead pushBack (_this select 0);
         } else {
           systemChat format ["%1 knocked out by %2", _this select 0, _this select 1];
           PlayerBattleWounded pushBack (_this select 0);
-        }
+        };
     }];
   
   removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeUniform _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit;
@@ -43,18 +44,17 @@ for "_i" from 1 to 14 do
   PlayerBattleUnits pushBack _unit;
 };
 
-for "_i" from 1 to 15 do
+for "_i" from 1 to 5 do
 {
   _unit = AIBattleGroup createUnit ["O_survivor_F", getMarkerPos "BattleZoneAI", [], 0, "FORM"];
   _unit addEventHandler ["killed", {
-        _rand = random [0,0.5,1];
-        if(_rand < .75) then {
+        if(!([_this select 0, 1] call SurvivalCheck)) then {
           systemChat format ["%1 killed by %2", _this select 0, _this select 1];
           AIBattleDead pushBack (_this select 0);
         } else {
           systemChat format ["%1 knocked out by %2", _this select 0, _this select 1];
           AIBattleWounded pushBack (_this select 0);
-        }
+        };
     }];
   
   removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeUniform _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit;
