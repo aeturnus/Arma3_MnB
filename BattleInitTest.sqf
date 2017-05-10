@@ -80,13 +80,22 @@ BattleActive = true;
 while{BattleActive} do
 {
   //if(count units PlayerBattleGroup == 0) then
-  if(count PlayerBattleUnits == (count PlayerBattleDead + count PlayerBattleWounded)) then
+  _pDead = count PlayerBattleDead;
+  _pWounded = count PlayerBattleWounded;
+  _pActive = count PlayerBattleUnits - _pWounded - _pDead;
+
+  _aDead = count AIBattleDead;
+  _aWounded = count AIBattleWounded;
+  _aActive = count AIBattleUnits - _aWounded - _aDead;
+
+  hintSilent format ["Yours\n%1 active, %2 wounded, %3 dead\n\nEnemy\n%4 active, %5 wounded, %6 dead", _pActive, _pWounded, _pDead,_aActive, _aWounded, _aDead];
+  if(_pActive == 0) then
   {
     hint "You have been defeated.";
     BattleActive = false;
   };
   //if(count units AIBattleGroup == 0) then
-  if(count AIBattleUnits == (count AIBattleDead + count AIBattleWounded)) then
+  if(_aActive == 0) then
   {
     hint "You have defeated the enemy!";
     BattleActive = false;
