@@ -15,18 +15,18 @@ _pelvis     = (vehicle _guy) getHitPointDamage "hitPelvis";
 _rand = random 1.0;
 
 _threshold = 0;
-_threshold = _threshold + _abdomen   * 0.15;
-_threshold = _threshold + _arms      * 0.05;
-_threshold = _threshold + _body      * 0.15;
-_threshold = _threshold + _chest     * 0.25;
-_threshold = _threshold + _diaphragm * 0.10;
-_threshold = _threshold + _face      * 0.50;
-_threshold = _threshold + _hands     * 0.05;
-_threshold = _threshold + _head      * 0.50;
+_threshold = _threshold + _abdomen   * 0.25;
+_threshold = _threshold + _arms      * 0.10;
+//_threshold = _threshold + _body      * 0.25; // body inherits from pelvis, abdomen, diaphragm, and chest
+_threshold = _threshold + _chest     * 0.50;
+_threshold = _threshold + _diaphragm * 0.25;
+_threshold = _threshold + _face      * 0.90;
+_threshold = _threshold + _hands     * 0.01;
+_threshold = _threshold + _head      * 0.90;
 _threshold = _threshold + _legs      * 0.10;
-_threshold = _threshold + _neck      * 0.25;
+_threshold = _threshold + _neck      * 0.75;
 _threshold = _threshold + _pelvis    * 0.10;
-_threshold = _threshold * (1 - (_surgery-1)*.10);
+_threshold = _threshold * (1 - (_surgery)*.05);
 
 //hint format ["Threshold: %1\nRandom: %2", _threshold, _rand];
 
