@@ -1,4 +1,5 @@
 SurvivalCheck = compile preprocessFile "SurvivalCheck.sqf";
+CountAmmo     = compile preprocessFile "CountAmmo.sqf";
 
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
@@ -70,6 +71,10 @@ _wpP = PlayerBattleGroup addWaypoint [getMarkerPos "BattleZoneAI", 50];
 _wpP setWaypointType "DESTROY";
 _wpA = AIBattleGroup addWaypoint [getMarkerPos "BattleZonePlayer", 50];
 _wpA setWaypointType "DESTROY";
+
+_ammo = [PlayerBattleUnit] call CountAmmo;
+hint format ["Intermediate: %1", _ammo select 1];
+
 BattleActive = true;
 while{BattleActive} do
 {
@@ -92,6 +97,17 @@ while{BattleActive} do
 
 PlayerBattleUnit removeAllEventHandlers "killed";
 selectPlayer PlayerUnit;
+
+
+sleep 5;
+hint format ["%1 dead\n%2 wounded", count PlayerBattleDead, count PlayerBattleWounded];
+sleep 5;
+{
+  _ammo = [_x] call CountAmmo;
+  hint format ["Intermediate: %1", _ammo select 1];
+  sleep 2;
+} forEach PlayerBattleUnits;
+
 deleteVehicle PlayerBattleUnit;
 {
   deleteVehicle _x;
@@ -101,6 +117,3 @@ deleteGroup PlayerBattleGroup;
   deleteVehicle _x;
 } forEach AIBattleUnits;
 deleteGroup AIBattleGroup;
-
-sleep 5;
-hint format ["%1 dead\n%2 wounded", count PlayerBattleDead, count PlayerBattleWounded];
