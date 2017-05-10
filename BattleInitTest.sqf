@@ -68,12 +68,13 @@ for "_i" from 1 to 5 do
 };
 
 _wpP = PlayerBattleGroup addWaypoint [getMarkerPos "BattleZoneAI", 50];
-_wpP setWaypointType "DESTROY";
+_wpP setWaypointType "SAD";
+_wpP setWaypointCombatMode "RED";
+sleep 1;
 _wpA = AIBattleGroup addWaypoint [getMarkerPos "BattleZonePlayer", 50];
-_wpA setWaypointType "DESTROY";
-
-_ammo = [PlayerBattleUnit] call CountAmmo;
-hint format ["Intermediate: %1", _ammo select 1];
+_wpA setWaypointType "SAD";
+_wpA setWaypointCombatMode "RED";
+sleep 1;
 
 BattleActive = true;
 while{BattleActive} do
@@ -98,14 +99,12 @@ while{BattleActive} do
 PlayerBattleUnit removeAllEventHandlers "killed";
 selectPlayer PlayerUnit;
 
-
-sleep 5;
-hint format ["%1 dead\n%2 wounded", count PlayerBattleDead, count PlayerBattleWounded];
-sleep 5;
 {
   _ammo = [_x] call CountAmmo;
-  hint format ["Intermediate: %1", _ammo select 1];
-  sleep 2;
+  (Supply_Ammo select 0) set [1, (Supply_Ammo select 0 select 1) + (_ammo select 0)];
+  (Supply_Ammo select 1) set [1, (Supply_Ammo select 1 select 1) + (_ammo select 1)];
+  (Supply_Ammo select 2) set [1, (Supply_Ammo select 2 select 1) + (_ammo select 2)];
+  (Supply_Ammo select 3) set [1, (Supply_Ammo select 3 select 1) + (_ammo select 3)];
 } forEach PlayerBattleUnits;
 
 deleteVehicle PlayerBattleUnit;
@@ -117,3 +116,8 @@ deleteGroup PlayerBattleGroup;
   deleteVehicle _x;
 } forEach AIBattleUnits;
 deleteGroup AIBattleGroup;
+
+sleep 5;
+hint format ["%1 dead\n%2 wounded", count PlayerBattleDead, count PlayerBattleWounded];
+sleep 5;
+hint format ["Pistol:%1\nIntermediate:%2\nRifle:%3\nHeavy:%4\n", Supply_Ammo select 0 select 1, Supply_Ammo select 1 select 1, Supply_Ammo select 2 select 1, Supply_Ammo select 3 select 1];
