@@ -13,7 +13,7 @@ AIBattleWounded     = [];
 PlayerBattleUnit = PlayerBattleGroup createUnit ["C_man_casual_1_F", getMarkerPos "BattleZonePlayer", [], 0, "NONE"];
 PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
-[PlayerBattleUnit] join PlayerBattleGroup;
+[PlayerBattleUnit] joinSilent PlayerBattleGroup;
 PlayerBattleUnits pushBack PlayerBattleUnit;
 selectPlayer PlayerBattleUnit;
 
@@ -39,7 +39,7 @@ for "_i" from 1 to 4 do
   _unit forceAddUniform "U_C_Poor_2"; for "_i" from 1 to 2 do {_unit addItemToUniform "30Rnd_762x39_Mag_F";};
   _unit addVest "V_BandollierB_cbr"; for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_762x39_Mag_F";};
   _unit addWeapon "arifle_AKM_F"; _unit linkItem "ItemMap"; _unit linkItem "ItemCompass"; _unit linkItem "ItemWatch"; _unit linkItem "ItemRadio";
-  [_unit] join PlayerBattleGroup;
+  [_unit] joinSilent PlayerBattleGroup;
 
   PlayerBattleUnits pushBack _unit;
 };
@@ -61,7 +61,7 @@ for "_i" from 1 to 5 do
   _unit forceAddUniform "U_O_CombatUniform_ocamo"; for "_i" from 1 to 3 do {_unit addItemToUniform "30Rnd_65x39_caseless_green";};
   _unit addVest "V_HarnessO_brn"; for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_green";};
   _unit addWeapon "arifle_Katiba_F"; _unit linkItem "ItemMap"; _unit linkItem "ItemCompass"; _unit linkItem "ItemWatch"; _unit linkItem "ItemRadio";
-  [_unit] join AIBattleGroup;
+  [_unit] joinSilent AIBattleGroup;
 
   AIBattleUnits pushBack _unit;
 };
