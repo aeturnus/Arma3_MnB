@@ -1,10 +1,14 @@
-SurvivalCheck = compile preprocessFile "SurvivalCheck.sqf";
-CountAmmo     = compile preprocessFile "CountAmmo.sqf";
-LogDeath      = compile preprocessFile "LogDeath.sqf";
+SurvivalCheck = compile preprocessFileLineNumbers "SurvivalCheck.sqf";
+CountAmmo     = compile preprocessFileLineNumbers "CountAmmo.sqf";
+LogDeath      = compile preprocessFileLineNumbers "LogDeath.sqf";
 
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
 
+// Tuple system:
+// For a given side:
+// [BattleUnits, BattleAlive, BattleWounded, BattleDead]
+// BattleUnits contain tuples
 PlayerBattleUnits   = [];
 AIBattleUnits       = [];
 PlayerBattleDead    = [];
