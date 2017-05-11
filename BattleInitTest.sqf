@@ -17,21 +17,16 @@ PlayerBattleWounded = [];
 AIBattleDead        = [];
 AIBattleWounded     = [];
 
-PlayerBattleUnit = PlayerBattleGroup createUnit ["C_man_casual_1_F", getMarkerPos "BattleZonePlayer", [], 0, "NONE"];
+PlayerBattleUnit = [0, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
 PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
 [PlayerBattleUnit] joinSilent PlayerBattleGroup;
 PlayerBattleUnits pushBack PlayerBattleUnit;
 selectPlayer PlayerBattleUnit;
 
-removeAllWeapons PlayerBattleUnit; removeAllItems PlayerBattleUnit; removeAllAssignedItems PlayerBattleUnit; removeUniform PlayerBattleUnit; removeVest PlayerBattleUnit; removeBackpack PlayerBattleUnit; removeHeadgear PlayerBattleUnit; removeGoggles PlayerBattleUnit;
-PlayerBattleUnit forceAddUniform "U_C_Poor_2"; for "_i" from 1 to 2 do {PlayerBattleUnit addItemToUniform "30Rnd_762x39_Mag_F";};
-PlayerBattleUnit addVest "V_BandollierB_cbr"; for "_i" from 1 to 6 do {PlayerBattleUnit addItemToVest "30Rnd_762x39_Mag_F";};
-PlayerBattleUnit addWeapon "arifle_AKM_F"; PlayerBattleUnit linkItem "ItemMap"; PlayerBattleUnit linkItem "ItemCompass"; PlayerBattleUnit linkItem "ItemWatch"; PlayerBattleUnit linkItem "ItemRadio";
-
 for "_i" from 1 to 4 do
 {
-  _unit = [0, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
+  _unit = [1, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
   _unit addEventHandler ["killed", {
         if(!([_this select 0, 1] call SurvivalCheck)) then {
           [_this select 0, _this select 1, true] call LogDeath;
@@ -47,7 +42,7 @@ for "_i" from 1 to 4 do
 
 for "_i" from 1 to 5 do
 {
-  _unit = [1, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
+  _unit = [2, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
   _unit addEventHandler ["killed", {
         if(!([_this select 0, 1] call SurvivalCheck)) then {
           [_this select 0, _this select 1, true] call LogDeath;

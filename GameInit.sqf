@@ -32,5 +32,5 @@ PlayerUnit setSpeaker PlayerSpeaker;
 PlayerUnit addAction ["Begin test battle", {execVM "BattleInitTest.sqf"}];
 PlayerUnit addAction ["GenerateTestUnit", {
   _genUnit = compile preprocessFileLineNumbers "GenerateUnit.sqf";
-  _unit = [0,group player, getPos PlayerUnit] call _genUnit;
+  _unit = [1,group player, getPos PlayerUnit] call _genUnit;
 }];
