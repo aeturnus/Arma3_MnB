@@ -29,20 +29,34 @@ _unit = _grp createUnit [_classname, _pos, [], 0, "FORM"];
 removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeUniform _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit;
 
 // Add clothes and backpack
-if(EQP_UNIFORM != "NULL") then {
-  _unit forceAddUniform EQP_UNIFORM;
+_count = count EQP_UNIFORM;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit forceAddUniform (EQP_UNIFORM select _index);
 };
-if(EQP_VEST != "NULL") then {
-  _unit addVest EQP_VEST;
+
+_count = count EQP_VEST;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit addVest (EQP_VEST select _index);
 };
-if(EQP_BACKPACK != "NULL") then {
-  _unit addBackpack EQP_BACKPACK;
+
+_count = count EQP_BACKPACK;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit addBackpack (EQP_BACKPACK select _index);
 };
-if(EQP_HEADGEAR != "NULL") then {
-  _unit addHeadgear EQP_HEADGEAR;
+
+_count = count EQP_HEADGEAR;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit addHeadgear (EQP_HEADGEAR select _index);
 };
-if(EQP_GOGGLES != "NULL") then {
-  _unit addGoggles EQP_GOGGLES;
+
+_count = count EQP_GOGGLES;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit addGoggles (EQP_GOGGLES select _index);
 };
 
 // Add mags
@@ -69,15 +83,23 @@ if((EQP_SECONDARY select 0) != "NULL") then {
     _unit addSecondaryWeaponItem _x;
   } forEach (EQP_SECONDARY select 1);
 };
-if(EQP_BINOS != "NULL") then {
-  _unit addWeapon EQP_BINOS;
+
+_count = count EQP_BINOS;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit addWeapon (EQP_BINOS select _index);
+};
+
+_count = count EQP_NVG;
+if(_count != 0) then {
+  _index = floor (random _count);
+  _unit linkItem (EQP_NVG select _index);
 };
 
 // Add items
-if(EQP_NVG != "NULL") then {
-  _unit linkItem EQP_NVG;
-};
-
+{
+  _unit additem _x;
+} forEach EQP_ITEMS;
 
 // Add default items
 _unit linkItem "ItemMap";
