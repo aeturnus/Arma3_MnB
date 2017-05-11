@@ -79,6 +79,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 
+_unit
 /*
 _unit setFace "GreekHead_A3_03";
 _unit setSpeaker "male06gre";

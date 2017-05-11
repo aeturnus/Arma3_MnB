@@ -1,6 +1,7 @@
 SurvivalCheck = compile preprocessFileLineNumbers "SurvivalCheck.sqf";
 CountAmmo     = compile preprocessFileLineNumbers "CountAmmo.sqf";
 LogDeath      = compile preprocessFileLineNumbers "LogDeath.sqf";
+GenerateUnit  = compile preprocessFileLineNumbers "GenerateUnit.sqf";
 
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
@@ -30,7 +31,7 @@ PlayerBattleUnit addWeapon "arifle_AKM_F"; PlayerBattleUnit linkItem "ItemMap"; 
 
 for "_i" from 1 to 4 do
 {
-  _unit = PlayerBattleGroup createUnit ["C_man_casual_1_F", getMarkerPos "BattleZonePlayer", [], 0, "FORM"];
+  _unit = [0, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
   _unit addEventHandler ["killed", {
         if(!([_this select 0, 1] call SurvivalCheck)) then {
           [_this select 0, _this select 1, true] call LogDeath;
@@ -40,19 +41,13 @@ for "_i" from 1 to 4 do
           PlayerBattleWounded pushBack (_this select 0);
         };
     }];
-  
-  removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeUniform _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit;
-  _unit forceAddUniform "U_C_Poor_2"; for "_i" from 1 to 2 do {_unit addItemToUniform "30Rnd_762x39_Mag_F";};
-  _unit addVest "V_BandollierB_cbr"; for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_762x39_Mag_F";};
-  _unit addWeapon "arifle_AKM_F"; _unit linkItem "ItemMap"; _unit linkItem "ItemCompass"; _unit linkItem "ItemWatch"; _unit linkItem "ItemRadio";
   [_unit] joinSilent PlayerBattleGroup;
-
   PlayerBattleUnits pushBack _unit;
 };
 
 for "_i" from 1 to 5 do
 {
-  _unit = AIBattleGroup createUnit ["O_survivor_F", getMarkerPos "BattleZoneAI", [], 0, "FORM"];
+  _unit = [1, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
   _unit addEventHandler ["killed", {
         if(!([_this select 0, 1] call SurvivalCheck)) then {
           [_this select 0, _this select 1, true] call LogDeath;
@@ -62,13 +57,7 @@ for "_i" from 1 to 5 do
           AIBattleWounded pushBack (_this select 0);
         };
     }];
-  
-  removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeUniform _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit;
-  _unit forceAddUniform "U_O_CombatUniform_ocamo"; for "_i" from 1 to 3 do {_unit addItemToUniform "30Rnd_65x39_caseless_green";};
-  _unit addVest "V_HarnessO_brn"; for "_i" from 1 to 6 do {_unit addItemToVest "30Rnd_65x39_caseless_green";};
-  _unit addWeapon "arifle_Katiba_F"; _unit linkItem "ItemMap"; _unit linkItem "ItemCompass"; _unit linkItem "ItemWatch"; _unit linkItem "ItemRadio";
   [_unit] joinSilent AIBattleGroup;
-
   AIBattleUnits pushBack _unit;
 };
 
