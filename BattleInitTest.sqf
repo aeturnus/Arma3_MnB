@@ -8,52 +8,69 @@ AIBattleGroup = createGroup east;
 
 // Tuple system:
 // For a given side:
-// [BattleUnits, BattleAlive, BattleWounded, BattleDead]
-// BattleUnits contain tuples
+// [BattleUnits, BattleIDs, BattleActive, BattleWounded, BattleDead]
+// BattleUnits maps to BattleIDs
 PlayerBattleUnits   = [];
-AIBattleUnits       = [];
-PlayerBattleDead    = [];
+PlayerBattleIDs     = [];
+PlayerBattleActive  = [];
 PlayerBattleWounded = [];
+PlayerBattleDead    = [];
+AIBattleUnits       = [];
+AIBattleIDs         = [];
+AIBattleActive      = [];
 AIBattleDead        = [];
 AIBattleWounded     = [];
+
+PlayerBattle = [PlayerBattleUnits, PlayerBattleIDs, PlayerBattleActive, PlayerBattleWounded, PlayerBattleDead];
+AIBattle = [AIBattleUnits, AIBattleIDs, AIBattleActive, AIBattleWounded, AIBattleDead];
+
+Parties = [PlayerBattle, AIBattle];
 
 PlayerBattleUnit = [0, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
 PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
 [PlayerBattleUnit] joinSilent PlayerBattleGroup;
 PlayerBattleUnits pushBack PlayerBattleUnit;
+PlayerBattleActive pushBack PlayerBattleUnit;
+PlayerBattleIds pushBack 0;
 selectPlayer PlayerBattleUnit;
 
 for "_i" from 1 to 4 do
 {
   _unit = [1, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
   _unit addEventHandler ["killed", {
+        PlayerBattleActive = PlayerBattleActive - [(_this select 0)];
         if(!([_this select 0, 1] call SurvivalCheck)) then {
-          [_this select 0, _this select 1, true] call LogDeath;
+          [_this select 0, _this select 1, true, Parties] call LogDeath;
           PlayerBattleDead pushBack (_this select 0);
         } else {
-          [_this select 0, _this select 1, false] call LogDeath;
+          [_this select 0, _this select 1, false, Parties] call LogDeath;
           PlayerBattleWounded pushBack (_this select 0);
         };
     }];
   [_unit] joinSilent PlayerBattleGroup;
   PlayerBattleUnits pushBack _unit;
+  PlayerBattleActive pushBack _unit;
+  PlayerBattleIDs   pushBack 1;
 };
 
 for "_i" from 1 to 5 do
 {
   _unit = [2, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
   _unit addEventHandler ["killed", {
+        AIBattleActive = AIBattleActive - [(_this select 0)];
         if(!([_this select 0, 1] call SurvivalCheck)) then {
-          [_this select 0, _this select 1, true] call LogDeath;
+          [_this select 0, _this select 1, true, Parties] call LogDeath;
           AIBattleDead pushBack (_this select 0);
         } else {
-          [_this select 0, _this select 1, false] call LogDeath;
+          [_this select 0, _this select 1, false, Parties] call LogDeath;
           AIBattleWounded pushBack (_this select 0);
         };
     }];
   [_unit] joinSilent AIBattleGroup;
   AIBattleUnits pushBack _unit;
+  AIBattleActive pushBack _unit;
+  AIBattleIDs   pushBack 2;
 };
 
 _wpP = PlayerBattleGroup addWaypoint [getMarkerPos "BattleZoneAI", 50];
