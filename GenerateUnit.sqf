@@ -1,6 +1,7 @@
 // Generates a unit by its index number: very M&B like
 // Returns a reference to the unit
 #define EQP           4
+#define SKILLS        5
 #define EQP_BASECLASS (_equip select 0)
 #define EQP_UNIFORM   (_equip select 1)
 #define EQP_VEST      (_equip select 2)
@@ -14,9 +15,14 @@
 #define EQP_HANDGUN   (_equip select 10)
 #define EQP_SECONDARY (_equip select 11)
 #define EQP_ITEMS     (_equip select 12)
+
+#define SKL_LEADER    (_skill select 0)
+#define SKL_FIREARMS  (_skill select 1)
+#define SKL_SPOTTING  (_skill select 2)
 params ["_id","_grp","_pos"];
 _def = UnitDefs select _id;
 _equip = _def select EQP;
+_skill = _def select SKILLS;
 _classname = EQP_BASECLASS;  // get the classname of the base unit
 
 _unit = _grp createUnit [_classname, _pos, [], 0, "FORM"];
@@ -78,6 +84,20 @@ _unit linkItem "ItemMap";
 _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
+
+
+// Set skills
+_leadership = SKL_LEADER * 0.10;
+_firearms = SKL_FIREARMS * 0.10;
+_spotting = SKL_SPOTTING * 0.10;
+
+_unit setSkill ["commanding", _leadership];
+_unit setSkill ["aimingAccuracy", _firearms];
+_unit setSkill ["aimingShake", _firearms];
+_unit setSkill ["aimingSpeed", _firearms];
+_unit setSkill ["reloadSpeed", _firearms];
+_unit setSkill ["spotDistance", _spotting];
+_unit setSkill ["spotTime", _spotting];
 
 _unit
 /*
