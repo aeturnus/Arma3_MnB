@@ -1,5 +1,6 @@
 SurvivalCheck = compile preprocessFile "SurvivalCheck.sqf";
 CountAmmo     = compile preprocessFile "CountAmmo.sqf";
+LogDeath      = compile preprocessFile "LogDeath.sqf";
 
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
@@ -28,10 +29,10 @@ for "_i" from 1 to 4 do
   _unit = PlayerBattleGroup createUnit ["C_man_casual_1_F", getMarkerPos "BattleZonePlayer", [], 0, "FORM"];
   _unit addEventHandler ["killed", {
         if(!([_this select 0, 1] call SurvivalCheck)) then {
-          systemChat format ["%1 killed by %2", _this select 0, _this select 1];
+          [_this select 0, _this select 1, true] call LogDeath;
           PlayerBattleDead pushBack (_this select 0);
         } else {
-          systemChat format ["%1 knocked out by %2", _this select 0, _this select 1];
+          [_this select 0, _this select 1, false] call LogDeath;
           PlayerBattleWounded pushBack (_this select 0);
         };
     }];
@@ -50,10 +51,10 @@ for "_i" from 1 to 5 do
   _unit = AIBattleGroup createUnit ["O_survivor_F", getMarkerPos "BattleZoneAI", [], 0, "FORM"];
   _unit addEventHandler ["killed", {
         if(!([_this select 0, 1] call SurvivalCheck)) then {
-          systemChat format ["%1 killed by %2", _this select 0, _this select 1];
+          [_this select 0, _this select 1, true] call LogDeath;
           AIBattleDead pushBack (_this select 0);
         } else {
-          systemChat format ["%1 knocked out by %2", _this select 0, _this select 1];
+          [_this select 0, _this select 1, false] call LogDeath;
           AIBattleWounded pushBack (_this select 0);
         };
     }];
