@@ -7,7 +7,7 @@ Supply_Ammo = [
                 ["Launcher",    0],
                 ["Explosives",  0]
               ];
-
+execVM "UnitDefs.sqf";
 /*
 {
   hint format ["%1: %2", _x select 0, _x select 1];
@@ -30,3 +30,7 @@ PlayerUnit setFace PlayerFace;
 PlayerUnit setSpeaker PlayerSpeaker;
 
 PlayerUnit addAction ["Begin test battle", {execVM "BattleInitTest.sqf"}];
+PlayerUnit addAction ["GenerateTestUnit", {
+  _genUnit = compile preprocessFileLineNumbers "GenerateUnit.sqf";
+  _unit = [0,group player, getPos PlayerUnit] call _genUnit;
+}];
