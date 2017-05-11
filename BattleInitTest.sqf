@@ -56,7 +56,7 @@ for "_i" from 1 to 4 do
 
 for "_i" from 1 to 5 do
 {
-  _unit = [2, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
+  _unit = [3, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
   _unit addEventHandler ["killed", {
         AIBattleActive = AIBattleActive - [(_this select 0)];
         if(!([_this select 0, 1] call SurvivalCheck)) then {
@@ -70,7 +70,7 @@ for "_i" from 1 to 5 do
   [_unit] joinSilent AIBattleGroup;
   AIBattleUnits pushBack _unit;
   AIBattleActive pushBack _unit;
-  AIBattleIDs   pushBack 2;
+  AIBattleIDs   pushBack 3;
 };
 
 _wpP = PlayerBattleGroup addWaypoint [getMarkerPos "BattleZoneAI", 50];

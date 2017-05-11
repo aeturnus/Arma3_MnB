@@ -52,5 +52,15 @@ UnitDefs =
       ["NULL",[]],  // launcher
       []            // items
     ]
+  ],
+  ["CSAT Operator", "CSAT Operators", "CSAT", "Iran",
+    [
+      "O_survivor_F","U_O_V_Soldier_Viper_hex_F", "NULL", "B_ViperHarness_hex_M_F", "H_HelmetO_ViperSP_hex_F", "NULL", "NULL", "NULL",
+      [["30Rnd_65x39_caseless_green",7],["10Rnd_50BW_Mag_F",4],["16Rnd_9x21_Mag",2],["MiniGrenade",2]],
+      ["arifle_ARX_hex_F",["muzzle_snds_65_TI_hex_F","acc_pointer_IR","optic_Arco"]],
+      ["hgun_Rook40_F",["muzzle_snds_L"]],  // handgun
+      ["NULL",[]],  // launcher
+      ["ItemGPS"]            // items
+    ]
   ]
 ];
