@@ -35,7 +35,7 @@ PlayerBattleActive pushBack PlayerBattleUnit;
 PlayerBattleIds pushBack 0;
 selectPlayer PlayerBattleUnit;
 
-for "_i" from 1 to 4 do
+for "_i" from 1 to 14 do
 {
   _unit = [1, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
   _unit addEventHandler ["killed", {
