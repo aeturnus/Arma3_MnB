@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=50;
+		nextID=54;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={19856.912,53.631615,14727.933};
-		dir[]={-0.9177537,-0.20087883,0.34267604};
-		up[]={-0.18820386,0.97961378,0.070273168};
-		aside[]={0.34980589,-6.2689651e-007,0.93684691};
+		pos[]={19882.809,52.015053,14722.307};
+		dir[]={-0.91222209,-0.20755425,0.35323605};
+		up[]={-0.19355141,0.97822374,0.0749484};
+		aside[]={0.36110088,-1.7113052e-007,0.93253028};
 	};
 };
 binarizationWanted=0;
@@ -87,7 +87,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=5;
+		items=7;
 		class Item0
 		{
 			dataType="Group";
@@ -341,6 +341,23 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item5
+		{
+			dataType="Marker";
+			position[]={18558.748,49.292477,16249.885};
+			name="BattleZonePlayer_Hill";
+			type="Empty";
+			id=52;
+		};
+		class Item6
+		{
+			dataType="Marker";
+			position[]={18434.227,-0.77246094,16624.541};
+			name="BattleZoneAI_Hill";
+			type="Empty";
+			id=53;
+			atlOffset=-68.846268;
 		};
 	};
 };

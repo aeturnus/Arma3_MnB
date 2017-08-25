@@ -46,7 +46,7 @@ UnitDefs =
     ],
     [0,0,0]
   ],
-  ["altis_i1", "Altian Recruit", "Altian Recruits", "Altian Locals", "Altis",
+  ["altis_i1", "Altian Militia Recruit", "Altian Militia Recruits", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
@@ -65,7 +65,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["altis_i2","Altian Militiaman", "Altian Militiamen", "Altian Locals", "Altis",
+  ["altis_i2","Altian Militia Trainee", "Altian Militia Trainees", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
@@ -84,7 +84,79 @@ UnitDefs =
       ["NULL",[]],  // launcher
       []            // items
     ],
-    [1,1,1]
+    [2,2,2]
+  ],
+  ["altis_i3","Altian Militiaman", "Altian Militiamen", "Altian Locals", "Altis",
+    [
+      "C_man_casual_1_F",
+      ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
+      ["V_TacVest_blk", "V_TacVest_brn", "V_TacVest_camo", "V_TacVest_khk", "V_TacVest_oli"],
+      [],
+      ["H_Booniehat_khk_hs"],
+      [],
+      [],
+      [],
+      [["30Rnd_762x39_Mag_F",6],["10Rnd_9x21_Mag",2]],
+      ["arifle_AKM_F",[]],
+      ["hgun_Pistol_01_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [3,3,3]
+  ],
+  ["altis_s3","Altian Marksman", "Altian Marksmen", "Altian Locals", "Altis",
+    [
+      "C_man_casual_1_F",
+      ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
+      ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli"],
+      [],
+      ["H_Watchcap_blk","H_Watchcap_cbr","H_Watchcap_camo","H_Watchcap_khk"],
+      [],
+      [],
+      [],
+      [["20Rnd_762x51_Mag",6],["10Rnd_9x21_Mag",2]],
+      ["srifle_DMR_06_olive_F",["optic_MRCO"]],
+      ["hgun_Pistol_01_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [3,3,3]
+  ],
+  ["altis_i4","Altian Veteran Militiaman", "Altian Veteran Militiamen", "Altian Locals", "Altis",
+    [
+      "C_man_casual_1_F",
+      ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
+      ["V_TacVest_blk", "V_TacVest_brn", "V_TacVest_camo", "V_TacVest_khk", "V_TacVest_oli"],
+      [],
+      ["H_Booniehat_khk_hs"],
+      [],
+      [],
+      [],
+      [["30Rnd_762x39_Mag_F",6],["10Rnd_9x21_Mag",2]],
+      ["arifle_AK12_F",["optic_MRCO"]],
+      ["hgun_Pistol_01_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [4,4,4]
+  ],
+  ["altis_s4","Altian Veteran Marksman", "Altian Veteran Marksmen", "Altian Locals", "Altis",
+    [
+      "C_man_casual_1_F",
+      ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
+      ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli"],
+      [],
+      ["H_Watchcap_blk","H_Watchcap_cbr","H_Watchcap_camo","H_Watchcap_khk"],
+      [],
+      [],
+      [],
+      [["20Rnd_762x51_Mag",6],["10Rnd_9x21_Mag",2]],
+      ["srifle_DMR_06_camo_F",["optic_SOS_khk_F"]],
+      ["hgun_Pistol_01_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [4,4,4]
   ],
   ["nato_i1", "NATO Recruit", "NATO Recruits", "NATO", "US",
     [
@@ -120,7 +192,7 @@ UnitDefs =
       ["NULL",[]],  // launcher
       []            // items
     ],
-    [1,1,1]
+    [2,2,2]
   ],
   ["csat_i1","CSAT Recruit", "CSAT Recruits", "CSAT", "Iran",
     [
@@ -156,7 +228,7 @@ UnitDefs =
       ["NULL",[]],  // launcher
       []            // items
     ],
-    [1,1,1]
+    [2,2,2]
   ],
   ["csat_i7","CSAT Operator", "CSAT Operators", "CSAT", "Iran",
     [
