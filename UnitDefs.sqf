@@ -1,6 +1,6 @@
 /*
 Unit definition:
-[UniqueId, Name, Name (Plural), Faction, "Identity range",Equipment, Skills]
+[UniqueId, Name, Name (Plural), Rank, Faction, "Identity range",Equipment, Skills]
 Equipment:
 [
   BaseClass,
@@ -28,7 +28,7 @@ Skills:
 UnitDefs =
 [
   // 0
-  ["player","Player", "Player", "Player Faction", "Altis",
+  ["player","Player", "Player", "PRIVATE", "Player Faction", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_Poor_2"],
@@ -46,7 +46,7 @@ UnitDefs =
     ],
     [0,0,0]
   ],
-  ["altis_i1", "Altian Militia Recruit", "Altian Militia Recruits", "Altian Locals", "Altis",
+  ["altis_i1", "Altian Militia Recruit", "Altian Militia Recruits", "PRIVATE", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
@@ -65,7 +65,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["altis_i2","Altian Militia Trainee", "Altian Militia Trainees", "Altian Locals", "Altis",
+  ["altis_i2","Altian Militia Trainee", "Altian Militia Trainees", "PRIVATE", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
@@ -86,7 +86,7 @@ UnitDefs =
     ],
     [2,2,2]
   ],
-  ["altis_i3","Altian Militiaman", "Altian Militiamen", "Altian Locals", "Altis",
+  ["altis_i3","Altian Militiaman", "Altian Militiamen", "CORPORAL", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
@@ -104,7 +104,7 @@ UnitDefs =
     ],
     [3,3,3]
   ],
-  ["altis_s3","Altian Marksman", "Altian Marksmen", "Altian Locals", "Altis",
+  ["altis_s3","Altian Marksman", "Altian Marksmen", "CORPORAL", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
@@ -122,7 +122,7 @@ UnitDefs =
     ],
     [3,3,3]
   ],
-  ["altis_i4","Altian Veteran Militiaman", "Altian Veteran Militiamen", "Altian Locals", "Altis",
+  ["altis_i4","Altian Veteran Militiaman", "Altian Veteran Militiamen", "SERGEANT", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
@@ -140,7 +140,7 @@ UnitDefs =
     ],
     [4,4,4]
   ],
-  ["altis_s4","Altian Veteran Marksman", "Altian Veteran Marksmen", "Altian Locals", "Altis",
+  ["altis_s4","Altian Veteran Marksman", "Altian Veteran Marksmen", "SERGEANT", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
@@ -158,7 +158,7 @@ UnitDefs =
     ],
     [4,4,4]
   ],
-  ["nato_i1", "NATO Recruit", "NATO Recruits", "NATO", "US",
+  ["nato_i1", "NATO Recruit", "NATO Recruits", "PRIVATE", "NATO", "US",
     [
       "B_Soldier_F",
       ["U_B_ComabtUniform_mcam_tshirt"],
@@ -176,7 +176,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["nato_i2", "NATO Private", "NATO Privates", "NATO", "US",
+  ["nato_i2", "NATO Private", "NATO Privates", "PRIVATE", "NATO", "US",
     [
       "B_Soldier_F",
       ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt"],
@@ -194,7 +194,7 @@ UnitDefs =
     ],
     [2,2,2]
   ],
-  ["csat_i1","CSAT Recruit", "CSAT Recruits", "CSAT", "Iran",
+  ["csat_i1","CSAT Recruit", "CSAT Recruits", "PRIVATE", "CSAT", "Iran",
     [
       "O_survivor_F",
       ["U_O_CombatUniform_ocamo"],
@@ -212,7 +212,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["csat_i2","CSAT Private", "CSAT Privates", "CSAT", "Iran",
+  ["csat_i2","CSAT Private", "CSAT Privates", "PRIVATE", "CSAT", "Iran",
     [
       "O_survivor_F",
       ["U_O_CombatUniform_ocamo"],
@@ -230,7 +230,7 @@ UnitDefs =
     ],
     [2,2,2]
   ],
-  ["csat_i7","CSAT Operator", "CSAT Operators", "CSAT", "Iran",
+  ["csat_i7","CSAT Operator", "CSAT Operators", "CAPTAIN", "CSAT", "Iran",
     [
       "O_recon_F",
       ["U_O_V_Soldier_Viper_hex_F"],
@@ -248,7 +248,7 @@ UnitDefs =
     ],
     [10,10,10]
   ],
-  ["merc_ion_i5","ION Newhire", "ION Newhire", "ION", "US",
+  ["merc_ion_i5","ION Newhire", "ION Newhire", "SERGEANT", "ION", "US",
     [
       "B_Soldier_F",
       ["U_Competitor"],
@@ -266,7 +266,7 @@ UnitDefs =
     ],
     [6,6,6]
   ],
-  ["merc_ion_i6","ION Contractor", "ION Contractors", "ION", "US",
+  ["merc_ion_i6","ION Contractor", "ION Contractors", "LIEUTENANT", "ION", "US",
     [
       "B_Soldier_F",
       ["U_Competitor"],
@@ -284,7 +284,7 @@ UnitDefs =
     ],
     [8,8,8]
   ],
-  ["merc_ion_s6","ION Marksman", "ION Marksmen", "ION", "US",
+  ["merc_ion_s6","ION Marksman", "ION Marksmen", "LIEUTENANT", "ION", "US",
     [
       "B_Soldier_M_F",
       ["U_Competitor"],
@@ -302,7 +302,7 @@ UnitDefs =
     ],
     [8,8,8]
   ],
-  ["merc_ion_m6","ION Defender", "ION Defenders", "ION", "US",
+  ["merc_ion_m6","ION Defender", "ION Defenders", "LIEUTENANT", "ION", "US",
     [
       "B_Soldier_AR_F",
       ["U_Competitor"],

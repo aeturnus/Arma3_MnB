@@ -1,7 +1,8 @@
 // Generates a unit by its index number: very M&B like
 // Returns a reference to the unit
-#define EQP           5
-#define SKILLS        6
+#define RNK           3
+#define EQP           6
+#define SKILLS        7
 #define EQP_BASECLASS (_equip select 0)
 #define EQP_UNIFORM   (_equip select 1)
 #define EQP_VEST      (_equip select 2)
@@ -120,6 +121,8 @@ _unit setSkill ["aimingSpeed", _firearms];
 _unit setSkill ["reloadSpeed", _firearms];
 _unit setSkill ["spotDistance", _spotting];
 _unit setSkill ["spotTime", _spotting];
+
+_unit setUnitRank (_def select RNK);
 
 _unit
 /*
