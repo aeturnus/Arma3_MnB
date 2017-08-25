@@ -38,7 +38,7 @@ UnitDefs =
       [],
       [],
       [],
-      [["30Rnd_762x39_Mag_F",8], ["9Rnd_45ACP_Mag",2]],
+      [["30Rnd_762x39_Mag_F",8], ["9Rnd_45ACP_Mag",4]],
       ["arifle_AKM_F",[]],
       ["hgun_ACPC2_F",[]],
       ["NULL",[]],
@@ -46,20 +46,18 @@ UnitDefs =
     ],
     [0,0,0]
   ],
-  ["alt_i1", "Altian Recruit", "Altian Recruits", "Altian Locals", "Altis",
+  ["altis_i1", "Altian Recruit", "Altian Recruits", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
        "U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
-      ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli",
-       "V_TacChestRig_cbr_F","V_TacChestRig_grn_F","V_TacChestRig_oli_F",
-       "V_ChestRig_rgr","V_ChestRig_khk","V_ChestRig_oli"],
+      ["V_Rangemaster_Belt"],
       [],
       [],
       [],
       [],
       [],
-      [["10Rnd_9x21_Mag",6]],
+      [["10Rnd_9x21_Mag",8]],
       ["NULL",[]],
       ["hgun_Pistol_01_f",[]],  // handgun
       ["NULL",[]],  // launcher
@@ -67,7 +65,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["alt_i2","Altian Militiaman", "Altian Militiamen", "Altian Locals", "Altis",
+  ["altis_i2","Altian Militiaman", "Altian Militiamen", "Altian Locals", "Altis",
     [
       "C_man_casual_1_F",
       ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
@@ -80,19 +78,55 @@ UnitDefs =
       [],
       [],
       [],
-      [["30Rnd_762x39_Mag_F",8]],
+      [["30Rnd_762x39_Mag_F",6],["10Rnd_9x21_Mag",2]],
       ["arifle_AKM_F",[]],
-      ["NULL",[]],  // handgun
+      ["hgun_Pistol_01_f",[]],  // handgun
       ["NULL",[]],  // launcher
       []            // items
     ],
     [1,1,1]
   ],
-  ["iran_i1","CSAT Recruit", "CSAT Recruits", "CSAT", "Iran",
+  ["nato_i1", "NATO Recruit", "NATO Recruits", "NATO", "US",
+    [
+      "B_Soldier_F",
+      ["U_B_ComabtUniform_mcam_tshirt"],
+      ["V_Rangemaster_Belt"],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [["16Rnd_9x21_Mag",8]],
+      ["NULL",[]],
+      ["hgun_P07_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [1,1,1]
+  ],
+  ["nato_i2", "NATO Private", "NATO Privates", "NATO", "US",
+    [
+      "B_Soldier_F",
+      ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt"],
+      ["V_PlateCarrier1_rgr"],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [["30Rnd_65x39_caseless_mag",6],["16Rnd_9x21_Mag",2]],
+      ["arifle_MX_f",[]],
+      ["hgun_P07_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [1,1,1]
+  ],
+  ["csat_i1","CSAT Recruit", "CSAT Recruits", "CSAT", "Iran",
     [
       "O_survivor_F",
       ["U_O_CombatUniform_ocamo"],
-      ["V_HarnessO_brn"],
+      ["V_Rangemaster_Belt"],
       [], 
       [],
       [],
@@ -106,7 +140,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["iran_i2","CSAT Private", "CSAT Privates", "CSAT", "Iran",
+  ["csat_i2","CSAT Private", "CSAT Privates", "CSAT", "Iran",
     [
       "O_survivor_F",
       ["U_O_CombatUniform_ocamo"],
@@ -116,7 +150,7 @@ UnitDefs =
       [],
       [],
       [],
-      [["30Rnd_65x39_caseless_green",8]],
+      [["30Rnd_65x39_caseless_green",6],["16Rnd_9x21_Mag",2]],
       ["arifle_Katiba_F",[]],
       ["NULL",[]],  // handgun
       ["NULL",[]],  // launcher
@@ -124,7 +158,7 @@ UnitDefs =
     ],
     [1,1,1]
   ],
-  ["iran_i7","CSAT Operator", "CSAT Operators", "CSAT", "Iran",
+  ["csat_i7","CSAT Operator", "CSAT Operators", "CSAT", "Iran",
     [
       "O_recon_F",
       ["U_O_V_Soldier_Viper_hex_F"],

@@ -29,10 +29,11 @@ PlayerBattleUnits pushBack PlayerBattleUnit;
 PlayerBattleActive pushBack PlayerBattleUnit;
 PlayerBattleIds pushBack 0;
 selectPlayer PlayerBattleUnit;
+//PlayerBattleUnit setCustomAimCoef 10/1;
 
 for "_i" from 1 to 14 do
 {
-  _uid = "alt_i1";
+  _uid = "nato_i2";
   _unit = [_uid, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnitUid;
   _unit addEventHandler ["killed", {
         PlayerBattleActive = PlayerBattleActive - [(_this select 0)];
@@ -52,7 +53,7 @@ for "_i" from 1 to 14 do
 
 for "_i" from 1 to 15 do
 {
-  _uid = "iran_i1";
+  _uid = "csat_i2";
   _unit = [_uid, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnitUid;
   _unit addEventHandler ["killed", {
         AIBattleActive = AIBattleActive - [(_this select 0)];
