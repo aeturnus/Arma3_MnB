@@ -286,7 +286,7 @@ UnitDefs =
   ],
   ["merc_ion_s6","ION Marksman", "ION Marksmen", "ION", "US",
     [
-      "B_Soldier_F",
+      "B_Soldier_M_F",
       ["U_Competitor"],
       ["V_PlateCarrier1_blk"],
       [],
@@ -304,7 +304,7 @@ UnitDefs =
   ],
   ["merc_ion_m6","ION Defender", "ION Defenders", "ION", "US",
     [
-      "B_Soldier_F",
+      "B_Soldier_AR_F",
       ["U_Competitor"],
       ["V_PlateCarrier1_blk"],
       [],
