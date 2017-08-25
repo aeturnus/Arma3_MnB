@@ -22,7 +22,7 @@ AIBattle = [AIBattleUnits, AIBattleIDs, AIBattleActive, AIBattleWounded, AIBattl
 Parties = [PlayerBattle, AIBattle];
 
 //PlayerBattleUnit = ["player", PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnitUid;
-PlayerBattleUnit = ["altis_i4", PlayerBattleGroup, getMarkerPos "BattleZonePlayer_Hill"] call GenerateUnitUid;
+PlayerBattleUnit = ["merc_ion_i6", PlayerBattleGroup, getMarkerPos "BattleZonePlayer_Hill"] call GenerateUnitUid;
 PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
 [PlayerBattleUnit] joinSilent PlayerBattleGroup;
@@ -34,7 +34,7 @@ selectPlayer PlayerBattleUnit;
 
 for "_i" from 1 to 14 do
 {
-  _uid = "altis_i4";
+  _uid = "merc_ion_i6";
   _unit = [_uid, PlayerBattleGroup, getMarkerPos "BattleZonePlayer_Hill"] call GenerateUnitUid;
   _unit addEventHandler ["killed", {
         PlayerBattleActive = PlayerBattleActive - [(_this select 0)];

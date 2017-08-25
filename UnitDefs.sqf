@@ -244,9 +244,81 @@ UnitDefs =
       ["arifle_ARX_hex_F",["muzzle_snds_65_TI_hex_F","acc_pointer_IR","optic_Arco"]],
       ["hgun_Rook40_F",["muzzle_snds_L"]],  // handgun
       ["NULL",[]],  // launcher
-      ["ItemGPS"]            // items
+      ["ItemGPS"]   // items
     ],
     [10,10,10]
+  ],
+  ["merc_ion_i5","ION Newhire", "ION Newhire", "ION", "US",
+    [
+      "B_Soldier_F",
+      ["U_Competitor"],
+      ["V_PlateCarrier1_blk"],
+      [],
+      ["H_Cap_oli_hs"],
+      ["G_Tactical_Black"],
+      [],
+      [],
+      [["30Rnd_556x45_Stanag",8],["11Rnd_45ACP_Mag",2]],
+      ["arifle_SPAR_01_blk_F",["acc_flashlight","optic_Holosight_blk_F"]],
+      ["hgun_Pistol_heavy_01_F",["acc_flashlight_pistol"]],  // handgun
+      ["NULL",[]],  // launcher
+      ["ItemGPS"]   // items
+    ],
+    [6,6,6]
+  ],
+  ["merc_ion_i6","ION Contractor", "ION Contractors", "ION", "US",
+    [
+      "B_Soldier_F",
+      ["U_Competitor"],
+      ["V_PlateCarrier1_blk"],
+      [],
+      ["H_Cap_oli_hs"],
+      ["G_Tactical_Black"],
+      [],
+      [],
+      [["30Rnd_556x45_Stanag",8],["11Rnd_45ACP_Mag",2],["1Rnd_HE_Grenade_shell",4],["1Rnd_Smoke_Grenade_shell",1],["1Rnd_SmokeRed_Grenade_shell",1]],
+      ["arifle_SPAR_01_GL_blk_F",["acc_flashlight","optic_ERCO_blk_F"]],
+      ["hgun_Pistol_heavy_01_F",["acc_flashlight_pistol","optic_MRD"]],  // handgun
+      ["NULL",[]],  // launcher
+      ["ItemGPS"]   // items
+    ],
+    [8,8,8]
+  ],
+  ["merc_ion_s6","ION Marksman", "ION Marksmen", "ION", "US",
+    [
+      "B_Soldier_F",
+      ["U_Competitor"],
+      ["V_PlateCarrier1_blk"],
+      [],
+      ["H_Cap_oli_hs"],
+      ["G_Tactical_Black"],
+      [],
+      [],
+      [["20Rnd_762x51_Mag",6],["11Rnd_45ACP_Mag",2]],
+      ["arifle_SPAR_03_blk_F",["optic_AMS","bipod_01_F_blk"]],
+      ["hgun_Pistol_heavy_01_F",["acc_flashlight_pistol","optic_MRD"]],  // handgun
+      ["NULL",[]],  // launcher
+      ["ItemGPS"]   // items
+    ],
+    [8,8,8]
+  ],
+  ["merc_ion_m6","ION Defender", "ION Defenders", "ION", "US",
+    [
+      "B_Soldier_F",
+      ["U_Competitor"],
+      ["V_PlateCarrier1_blk"],
+      [],
+      ["H_Cap_oli_hs"],
+      ["G_Tactical_Black"],
+      [],
+      [],
+      [["150Rnd_556x45_Drum_Mag_F",4],["11Rnd_45ACP_Mag",2]],
+      ["arifle_SPAR_02_blk_F",["optic_ERCO_blk_F","bipod_01_F_blk"]],
+      ["hgun_Pistol_heavy_01_F",["acc_flashlight_pistol","optic_MRD"]],  // handgun
+      ["NULL",[]],  // launcher
+      ["ItemGPS"]   // items
+    ],
+    [8,8,8]
   ]
 ];
 
