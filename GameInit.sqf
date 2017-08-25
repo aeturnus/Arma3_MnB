@@ -1,3 +1,9 @@
+SurvivalCheck = compile preprocessFileLineNumbers "SurvivalCheck.sqf";
+CountAmmo     = compile preprocessFileLineNumbers "CountAmmo.sqf";
+LogDeath      = compile preprocessFileLineNumbers "LogDeath.sqf";
+GenerateUnit  = compile preprocessFileLineNumbers "GenerateUnit.sqf";
+GenerateUnitUid = compile preprocessFileLineNumbers "GenerateUnitUid.sqf";
+
 Supply_Money = 100;
 Supply_Ammo = [
                 ["Pistol",      0],

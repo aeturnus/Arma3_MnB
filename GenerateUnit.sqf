@@ -1,7 +1,7 @@
 // Generates a unit by its index number: very M&B like
 // Returns a reference to the unit
-#define EQP           4
-#define SKILLS        5
+#define EQP           5
+#define SKILLS        6
 #define EQP_BASECLASS (_equip select 0)
 #define EQP_UNIFORM   (_equip select 1)
 #define EQP_VEST      (_equip select 2)

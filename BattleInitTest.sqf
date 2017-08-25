@@ -1,8 +1,3 @@
-SurvivalCheck = compile preprocessFileLineNumbers "SurvivalCheck.sqf";
-CountAmmo     = compile preprocessFileLineNumbers "CountAmmo.sqf";
-LogDeath      = compile preprocessFileLineNumbers "LogDeath.sqf";
-GenerateUnit  = compile preprocessFileLineNumbers "GenerateUnit.sqf";
-
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
 
@@ -37,7 +32,8 @@ selectPlayer PlayerBattleUnit;
 
 for "_i" from 1 to 14 do
 {
-  _unit = [1, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnit;
+  _uid = "alt_i1";
+  _unit = [_uid, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnitUid;
   _unit addEventHandler ["killed", {
         PlayerBattleActive = PlayerBattleActive - [(_this select 0)];
         if(!([_this select 0, 1] call SurvivalCheck)) then {
@@ -51,12 +47,13 @@ for "_i" from 1 to 14 do
   [_unit] joinSilent PlayerBattleGroup;
   PlayerBattleUnits pushBack _unit;
   PlayerBattleActive pushBack _unit;
-  PlayerBattleIDs   pushBack 1;
+  PlayerBattleIDs   pushBack (UnitDefsUid find _uid);
 };
 
-for "_i" from 1 to 5 do
+for "_i" from 1 to 15 do
 {
-  _unit = [3, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnit;
+  _uid = "iran_i1";
+  _unit = [_uid, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnitUid;
   _unit addEventHandler ["killed", {
         AIBattleActive = AIBattleActive - [(_this select 0)];
         if(!([_this select 0, 1] call SurvivalCheck)) then {
@@ -70,7 +67,7 @@ for "_i" from 1 to 5 do
   [_unit] joinSilent AIBattleGroup;
   AIBattleUnits pushBack _unit;
   AIBattleActive pushBack _unit;
-  AIBattleIDs   pushBack 3;
+  AIBattleIDs   pushBack (UnitDefsUid find _uid);
 };
 
 _wpP = PlayerBattleGroup addWaypoint [getMarkerPos "BattleZoneAI", 50];

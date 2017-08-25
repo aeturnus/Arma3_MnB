@@ -1,3 +1,6 @@
+#define NAME_SIN 1
+#define NAME_PLU 2
+
 // Logs the death of a soldier
 params ["_killed","_killer","_isKilled", "_parties"];
 _weapon = getText(configFile >>"CfgWeapons" >> currentWeapon (vehicle _killer) >> "displayName");
@@ -23,8 +26,8 @@ _killerId = -1;
   };
 } forEach _parties;
 
-_killedName = (UnitDefs select _killedId) select 0;
-_killerName = (UnitDefs select _killerId) select 0;
+_killedName = (UnitDefs select _killedId) select NAME_SIN;
+_killerName = (UnitDefs select _killerId) select NAME_SIN;
 /*
 if(_killedId != -1) then {
   _killedName = (UnitDefs select _killedId) select 0;
