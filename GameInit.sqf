@@ -43,12 +43,12 @@ PlayerUnits =
   ["altis_i3",4],
   ["altis_i2",10]
   */
-  ["merc_ion_m6",10]
+  ["altis_i3",5]
 ];
 
 AIUnits =
 [
-  ["altis_i3",20]
+  ["crim_i3",15]
 ];
 
-PlayerUnit addAction ["Begin test battle", {[[10], PlayerUnits, AIUnits, "Rodopoli_Hill"] call BattleInit;}];
+PlayerUnit addAction ["Begin test battle", {[[10], PlayerUnits, AIUnits, "Rodopoli"] call BattleInit;}];

@@ -319,6 +319,80 @@ UnitDefs =
       ["ItemGPS"]   // items
     ],
     [8,8,8]
+  ],
+  ["crim_i0", "Looter", "Looters", "PRIVATE", "Criminals", "Altis",
+    [
+      "C_man_p_fugitive_F",
+      ["U_C_poor_1", "U_I_C_soldier_bandit_2_F", "U_I_C_soldier_bandit_3_F", "U_BG_Guerilla3_1"],
+      [],
+      ["B_Messenger_Black_F", "B_Messenger_Coyote_F", "B_Messenger_Gray_F", "B_Messenger_Olive_F"],
+      [],
+      [],
+      [],
+      [],
+      [["10Rnd_9x21_Mag",4]],
+      ["NULL",[]],
+      ["hgun_Pistol_01_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [0,0,0]
+  ],
+  ["crim_i1", "Local Thug", "Local Thugs", "PRIVATE", "Criminals", "Altis",
+    [
+      "C_man_p_fugitive_F",
+      ["U_C_poor_1", "U_I_C_soldier_bandit_2_F", "U_I_C_soldier_bandit_3_F", "U_BG_Guerilla3_1"],
+      [],
+      ["B_Messenger_Black_F", "B_Messenger_Coyote_F", "B_Messenger_Gray_F", "B_Messenger_Olive_F"],
+      [],
+      [],
+      [],
+      [],
+      [["10Rnd_9x21_Mag",4]],
+      ["NULL",[]],
+      ["hgun_Pistol_01_f",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [1,1,1]
+  ],
+  ["crim_i2", "Local Enforcer", "Local Enforcer", "PRIVATE", "Criminals", "Altis",
+    [
+      "C_man_p_fugitive_F",
+      ["U_C_poor_1", "U_I_C_soldier_bandit_2_F", "U_I_C_soldier_bandit_3_F", "U_BG_Guerilla3_1"],
+      [],
+      ["B_Messenger_Black_F", "B_Messenger_Coyote_F", "B_Messenger_Gray_F", "B_Messenger_Olive_F"],
+      [],
+      [],
+      [],
+      [],
+      [["30Rnd_9x21_Mag",4]],
+      ["hgun_PDW2000_F",[]],
+      ["NULL",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [2,2,2]
+  ],
+  ["crim_i3", "Bandit", "Bandits", "PRIVATE", "Criminals", "Altis",
+    [
+      "C_man_p_fugitive_F",
+      ["U_C_poor_1", "U_I_C_soldier_bandit_2_F", "U_I_C_soldier_bandit_3_F", "U_BG_Guerilla3_1"],
+      ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli",
+       "V_TacChestRig_cbr_F","V_TacChestRig_grn_F","V_TacChestRig_oli_F",
+       "V_ChestRig_rgr","V_ChestRig_khk","V_ChestRig_oli"],
+      [],
+      [],
+      ["G_Bandanna_Aviator", "G_Bandanna_Beast", "G_Bandanna_blk", "G_Bandanna_khk", "G_Bandanna_oli", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_tan"],
+      [],
+      [],
+      [["30Rnd_762x39_Mag_F",6]],
+      ["arifle_AKM_F",[]],
+      ["NULL",[]],  // handgun
+      ["NULL",[]],  // launcher
+      []            // items
+    ],
+    [3,3,3]
   ]
 ];
 
