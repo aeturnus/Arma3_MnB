@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=56;
+		nextID=69;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={19857.164,45.404911,14731.071};
-		dir[]={-0.95378292,-0.27500135,0.12119262};
-		up[]={-0.27281201,0.96144539,0.034664907};
-		aside[]={0.1260542,-1.9030995e-007,0.99203283};
+		pos[]={19847.789,53.078114,14730.636};
+		dir[]={-0.74463278,-0.52644581,0.41034535};
+		up[]={-0.46107331,0.85020667,0.25408521};
+		aside[]={0.48264086,2.9115472e-007,0.87582177};
 	};
 };
 binarizationWanted=0;
@@ -87,7 +87,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=7;
+		items=9;
 		class Item0
 		{
 			dataType="Group";
@@ -359,6 +359,24 @@ class Mission
 			type="Empty";
 			id=53;
 			atlOffset=-68.0737;
+		};
+		class Item7
+		{
+			dataType="Marker";
+			position[]={20162.627,0,13043.77};
+			name="Dorida_Forest_A";
+			type="Empty";
+			id=56;
+			atlOffset=-103.96481;
+		};
+		class Item8
+		{
+			dataType="Marker";
+			position[]={20456.691,0,13336.546};
+			name="Dorida_Forest_B";
+			type="Empty";
+			id=57;
+			atlOffset=-52.605713;
 		};
 	};
 };
