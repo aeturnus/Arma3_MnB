@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=54;
+		nextID=56;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={19882.809,52.015053,14722.307};
-		dir[]={-0.91222209,-0.20755425,0.35323605};
-		up[]={-0.19355141,0.97822374,0.0749484};
-		aside[]={0.36110088,-1.7113052e-007,0.93253028};
+		pos[]={19857.164,45.404911,14731.071};
+		dir[]={-0.95378292,-0.27500135,0.12119262};
+		up[]={-0.27281201,0.96144539,0.034664907};
+		aside[]={0.1260542,-1.9030995e-007,0.99203283};
 	};
 };
 binarizationWanted=0;
@@ -173,7 +173,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={18620.092,0,16588.611};
-			name="BattleZonePlayer";
+			name="Rodopoli_A";
 			type="Empty";
 			id=41;
 			atlOffset=-39.285069;
@@ -182,7 +182,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={18879.543,0,16682.867};
-			name="BattleZoneAI";
+			name="Rodopoli_B";
 			type="Empty";
 			id=42;
 			atlOffset=-32.084709;
@@ -345,19 +345,20 @@ class Mission
 		class Item5
 		{
 			dataType="Marker";
-			position[]={18558.748,49.292477,16249.885};
-			name="BattleZonePlayer_Hill";
+			position[]={18558.748,0,16249.885};
+			name="Rodopoli_Hill_A";
 			type="Empty";
 			id=52;
+			atlOffset=-49.292477;
 		};
 		class Item6
 		{
 			dataType="Marker";
-			position[]={18434.227,-0.77246094,16624.541};
-			name="BattleZoneAI_Hill";
+			position[]={18434.227,0,16624.539};
+			name="Rodopoli_Hill_B";
 			type="Empty";
 			id=53;
-			atlOffset=-68.846268;
+			atlOffset=-68.0737;
 		};
 	};
 };

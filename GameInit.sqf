@@ -3,6 +3,7 @@ CountAmmo     = compile preprocessFileLineNumbers "CountAmmo.sqf";
 LogDeath      = compile preprocessFileLineNumbers "LogDeath.sqf";
 GenerateUnit  = compile preprocessFileLineNumbers "GenerateUnit.sqf";
 GenerateUnitUid = compile preprocessFileLineNumbers "GenerateUnitUid.sqf";
+BattleInit    = compile preprocessFileLineNumbers "BattleInit.sqf";
 
 Supply_Money = 100;
 Supply_Ammo = [
@@ -35,8 +36,19 @@ PlayerUnit setName format ["%1 (Player)", PlayerName];
 PlayerUnit setFace PlayerFace;
 PlayerUnit setSpeaker PlayerSpeaker;
 
-PlayerUnit addAction ["Begin test battle", {execVM "BattleInitTest.sqf"}];
-PlayerUnit addAction ["GenerateTestUnit", {
-  _genUnit = compile preprocessFileLineNumbers "GenerateUnit.sqf";
-  _unit = [1,group player, getPos PlayerUnit] call _genUnit;
-}];
+PlayerUnits =
+[
+  /*
+  ["altis_i4",2],
+  ["altis_i3",4],
+  ["altis_i2",10]
+  */
+  ["merc_ion_m6",10]
+];
+
+AIUnits =
+[
+  ["altis_i3",20]
+];
+
+PlayerUnit addAction ["Begin test battle", {[[10], PlayerUnits, AIUnits, "Rodopoli_Hill"] call BattleInit;}];

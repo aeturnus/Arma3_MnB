@@ -1,3 +1,7 @@
+// units array: [ [uid,num], ... ]
+
+params ["_playerStats", "_playerUnits", "_aiUnits", "_loc"];
+
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
 
@@ -21,8 +25,26 @@ AIBattle = [AIBattleUnits, AIBattleIDs, AIBattleActive, AIBattleWounded, AIBattl
 
 Parties = [PlayerBattle, AIBattle];
 
-PlayerBattleUnit = ["player", PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnitUid;
-//PlayerBattleUnit = ["merc_ion_s6", PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnitUid;
+// select spawn locations
+// flip coin for A or B marker
+_flip = round(random 1.0);
+//hint format ["%1",_flip];
+_ploc = "";
+_aloc = "";
+if(_flip == 0) then 
+{
+  _ploc = _loc + "_A";
+  _aloc = _loc + "_B";
+}
+else
+{
+  _ploc = _loc + "_B";
+  _aloc = _loc + "_A"; 
+};
+Psurg = _playerStats select 0;
+Asurg = 0;
+
+PlayerBattleUnit = ["player", PlayerBattleGroup, getMarkerPos _ploc] call GenerateUnitUid;
 PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
 [PlayerBattleUnit] joinSilent PlayerBattleGroup;
@@ -31,53 +53,58 @@ PlayerBattleActive pushBack PlayerBattleUnit;
 PlayerBattleIds pushBack 0;
 selectPlayer PlayerBattleUnit;
 PlayerBattleUnit setCustomAimCoef 10/1;
-//setDate [2040, 3, 10, 0, 0];
 
-for "_i" from 1 to 30 do
+// add units
 {
-  _uid = "nato_i2";
-  _unit = [_uid, PlayerBattleGroup, getMarkerPos "BattleZonePlayer"] call GenerateUnitUid;
-  _unit addEventHandler ["killed", {
-        PlayerBattleActive = PlayerBattleActive - [(_this select 0)];
-        if(!([_this select 0, 1] call SurvivalCheck)) then {
-          [_this select 0, _this select 1, true, Parties] call LogDeath;
-          PlayerBattleDead pushBack (_this select 0);
-        } else {
-          [_this select 0, _this select 1, false, Parties] call LogDeath;
-          PlayerBattleWounded pushBack (_this select 0);
-        };
-    }];
-  [_unit] joinSilent PlayerBattleGroup;
-  PlayerBattleUnits pushBack _unit;
-  PlayerBattleActive pushBack _unit;
-  PlayerBattleIDs   pushBack (UnitDefsUid find _uid);
-};
-
-for "_i" from 1 to 30 do
+  _uid = _x select 0;
+  _count = _x select 1;
+  for "_i" from 1 to _count do
+  {
+    _unit = [_uid, PlayerBattleGroup, getMarkerPos _ploc] call GenerateUnitUid;
+    _unit addEventHandler ["killed", {
+          PlayerBattleActive = PlayerBattleActive - [(_this select 0)];
+          if(!([_this select 0, Psurg] call SurvivalCheck)) then {
+            [_this select 0, _this select 1, true, Parties] call LogDeath;
+            PlayerBattleDead pushBack (_this select 0);
+          } else {
+            [_this select 0, _this select 1, false, Parties] call LogDeath;
+            PlayerBattleWounded pushBack (_this select 0);
+          };
+      }];
+    [_unit] joinSilent PlayerBattleGroup;
+    PlayerBattleUnits pushBack _unit;
+    PlayerBattleActive pushBack _unit;
+    PlayerBattleIDs   pushBack (UnitDefsUid find _uid);
+  }
+} forEach _playerUnits;
 {
-  _uid = "csat_i2";
-  _unit = [_uid, AIBattleGroup, getMarkerPos "BattleZoneAI"] call GenerateUnitUid;
-  _unit addEventHandler ["killed", {
-        AIBattleActive = AIBattleActive - [(_this select 0)];
-        if(!([_this select 0, 1] call SurvivalCheck)) then {
-          [_this select 0, _this select 1, true, Parties] call LogDeath;
-          AIBattleDead pushBack (_this select 0);
-        } else {
-          [_this select 0, _this select 1, false, Parties] call LogDeath;
-          AIBattleWounded pushBack (_this select 0);
-        };
-    }];
-  [_unit] joinSilent AIBattleGroup;
-  AIBattleUnits pushBack _unit;
-  AIBattleActive pushBack _unit;
-  AIBattleIDs   pushBack (UnitDefsUid find _uid);
-};
+  _uid = _x select 0;
+  _count = _x select 1;
+  for "_i" from 1 to _count do
+  {
+    _unit = [_uid, AIBattleGroup, getMarkerPos _aloc] call GenerateUnitUid;
+    _unit addEventHandler ["killed", {
+          AIBattleActive = AIBattleActive - [(_this select 0)];
+          if(!([_this select 0, Asurg] call SurvivalCheck)) then {
+            [_this select 0, _this select 1, true, Parties] call LogDeath;
+            AIBattleDead pushBack (_this select 0);
+          } else {
+            [_this select 0, _this select 1, false, Parties] call LogDeath;
+            AIBattleWounded pushBack (_this select 0);
+          };
+      }];
+    [_unit] joinSilent AIBattleGroup;
+    AIBattleUnits pushBack _unit;
+    AIBattleActive pushBack _unit;
+    AIBattleIDs   pushBack (UnitDefsUid find _uid);
+  }
+} forEach _aiUnits;
 
-_wpP = PlayerBattleGroup addWaypoint [getMarkerPos "BattleZoneAI", 50];
+_wpP = PlayerBattleGroup addWaypoint [getMarkerPos _aloc, 50];
 _wpP setWaypointType "SAD";
 _wpP setWaypointCombatMode "RED";
 sleep 1;
-_wpA = AIBattleGroup addWaypoint [getMarkerPos "BattleZonePlayer", 50];
+_wpA = AIBattleGroup addWaypoint [getMarkerPos _ploc, 50];
 _wpA setWaypointType "SAD";
 _wpA setWaypointCombatMode "RED";
 sleep 1;
