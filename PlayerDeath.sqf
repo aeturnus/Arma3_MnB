@@ -9,11 +9,14 @@ player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
 
 ///*
 //DeathCamera = group player createUnit ["VirtualSpectator_F", position player, [], 0, "NONE"];
+sleep 1.0;
+BIS_DeathBlur ppEffectAdjust [0.0];
+BIS_DeathBlur ppEffectCommit 0.0;
 addSwitchableUnit DeathCamera;
 DeathCamera setPos (getPos player vectorAdd [0,0,1]);
 selectPlayer DeathCamera;
 removeSwitchableUnit DeathCamera;
-hint "You have fallen in battle. Your troops will fight on without you.";
+cutText ["You have fallen in battle. Your troops will fight on without you.", "PLAIN"];
 //DeathCamera addAction ["End Battle", {execVM "BattleEnd.sqf"; deleteVehicle DeathCamera; }];
 DeathCamera addAction ["End Battle", {execVM "BattleEnd.sqf"; removeAllActions DeathCamera}];
 //*/
