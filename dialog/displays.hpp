@@ -1,6 +1,6 @@
 #include "common.hpp"
 
-class MyHelloWorldDialog {
+class BarIndicator{
 	idd = 0;
 	movingEnable = 1;
 	enableSimulation = 1;
@@ -13,14 +13,16 @@ class MyHelloWorldDialog {
 	class controls { 
 		// define controls here
 	
-		class MyHelloText: RscText {
+		class BarText: RscText {
 			idc = -1;
 			moving = 1;
-			text = "Hello world";
-			x = 0.80;
-			y = 0.10;
-			w = 0.20;
-			h = 0.05;
+			text = "world";
+			x = 0.0;
+			y = 1.0;
+			w = 0.0;
+			h = 0.20;
+			colorBackground[] = {0,0,0,1};
+			textBackground[] = {1,1,1,1};
 		};
 	};
 };
