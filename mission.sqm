@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=69;
+		nextID=73;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={19847.789,53.078114,14730.636};
-		dir[]={-0.74463278,-0.52644581,0.41034535};
-		up[]={-0.46107331,0.85020667,0.25408521};
-		aside[]={0.48264086,2.9115472e-007,0.87582177};
+		pos[]={12705.312,58.000179,19675.236};
+		dir[]={0.91513717,-0.39587697,-0.077850029};
+		up[]={0.39468649,0.91817278,-0.033573393};
+		aside[]={-0.084766582,3.3021934e-006,-0.99652052};
 	};
 };
 binarizationWanted=0;
@@ -87,7 +87,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=9;
+		items=13;
 		class Item0
 		{
 			dataType="Group";
@@ -377,6 +377,42 @@ class Mission
 			type="Empty";
 			id=57;
 			atlOffset=-52.605713;
+		};
+		class Item9
+		{
+			dataType="Marker";
+			position[]={18147.689,0,15528.752};
+			name="Charkia_Storage_A";
+			type="Empty";
+			id=69;
+			atlOffset=-47.429756;
+		};
+		class Item10
+		{
+			dataType="Marker";
+			position[]={18458.611,0,15538.461};
+			name="Charkia_Storage_B";
+			type="Empty";
+			id=70;
+			atlOffset=-50.908661;
+		};
+		class Item11
+		{
+			dataType="Marker";
+			position[]={12691.124,0,19783.365};
+			name="Ifestiona_A";
+			type="Empty";
+			id=71;
+			atlOffset=-48.176914;
+		};
+		class Item12
+		{
+			dataType="Marker";
+			position[]={12926.003,0,19514.939};
+			name="Ifestiona_B";
+			type="Empty";
+			id=72;
+			atlOffset=-38.58984;
 		};
 	};
 };
