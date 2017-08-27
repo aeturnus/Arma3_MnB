@@ -30,8 +30,8 @@ UnitDefs =
   // 0
   ["player","Player", "Player", "PRIVATE", "Player Faction", "Altis",
     [
-      "C_man_casual_1_F",
-      ["U_C_Poor_2"],
+      "C_man_1",
+      ["U_C_Poor_1"],
       ["V_BandollierB_cbr"],
       [],
       [],
@@ -48,8 +48,8 @@ UnitDefs =
   ],
   ["altis_i1", "Altian Militia Recruit", "Altian Militia Recruits", "PRIVATE", "Altian Locals", "Altis",
     [
-      "C_man_casual_1_F",
-      ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
+      "C_man_1",
+      ["U_C_man_1", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
        "U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
       ["V_Rangemaster_Belt"],
       [],
@@ -67,8 +67,8 @@ UnitDefs =
   ],
   ["altis_i2","Altian Militia Trainee", "Altian Militia Trainees", "PRIVATE", "Altian Locals", "Altis",
     [
-      "C_man_casual_1_F",
-      ["U_C_man_casual_1_F", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
+      "C_man_1",
+      ["U_C_man_1", "U_C_man_casual_2_F", "U_C_man_casual_3_F",
        "U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
       ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli",
        "V_TacChestRig_cbr_F","V_TacChestRig_grn_F","V_TacChestRig_oli_F",
@@ -88,7 +88,7 @@ UnitDefs =
   ],
   ["altis_i3","Altian Militiaman", "Altian Militiamen", "CORPORAL", "Altian Locals", "Altis",
     [
-      "C_man_casual_1_F",
+      "C_man_1",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
       ["V_TacVest_blk", "V_TacVest_brn", "V_TacVest_camo", "V_TacVest_khk", "V_TacVest_oli"],
       [],
@@ -106,7 +106,7 @@ UnitDefs =
   ],
   ["altis_s3","Altian Marksman", "Altian Marksmen", "CORPORAL", "Altian Locals", "Altis",
     [
-      "C_man_casual_1_F",
+      "C_man_1",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
       ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli"],
       [],
@@ -124,7 +124,7 @@ UnitDefs =
   ],
   ["altis_i4","Altian Veteran Militiaman", "Altian Veteran Militiamen", "SERGEANT", "Altian Locals", "Altis",
     [
-      "C_man_casual_1_F",
+      "C_man_1",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
       ["V_TacVest_blk", "V_TacVest_brn", "V_TacVest_camo", "V_TacVest_khk", "V_TacVest_oli"],
       [],
@@ -142,7 +142,7 @@ UnitDefs =
   ],
   ["altis_s4","Altian Veteran Marksman", "Altian Veteran Marksmen", "SERGEANT", "Altian Locals", "Altis",
     [
-      "C_man_casual_1_F",
+      "C_man_1",
       ["U_BG_Guerilla2_1", "U_BG_Guerilla2_2", "U_BG_Guerilla2_3"],
       ["V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli"],
       [],
@@ -252,7 +252,7 @@ UnitDefs =
     [
       "B_Soldier_F",
       ["U_Competitor"],
-      ["V_PlateCarrier1_blk"],
+      ["V_PlateCarrier2_blk"],
       [],
       ["H_Cap_oli_hs"],
       ["G_Tactical_Black"],
@@ -270,7 +270,7 @@ UnitDefs =
     [
       "B_Soldier_F",
       ["U_Competitor"],
-      ["V_PlateCarrier1_blk"],
+      ["V_PlateCarrier2_blk"],
       [],
       ["H_Cap_oli_hs"],
       ["G_Tactical_Black"],
@@ -288,7 +288,7 @@ UnitDefs =
     [
       "B_Soldier_M_F",
       ["U_Competitor"],
-      ["V_PlateCarrier1_blk"],
+      ["V_PlateCarrier2_blk"],
       [],
       ["H_Cap_oli_hs"],
       ["G_Tactical_Black"],
@@ -306,7 +306,7 @@ UnitDefs =
     [
       "B_Soldier_AR_F",
       ["U_Competitor"],
-      ["V_PlateCarrier1_blk"],
+      ["V_PlateCarrier2_blk"],
       [],
       ["H_Cap_oli_hs"],
       ["G_Tactical_Black"],
@@ -393,11 +393,83 @@ UnitDefs =
       []            // items
     ],
     [3,3,3]
+  ],
+  ["pol_i1", "Recruit Policeman", "Recruit Policemen", "PRIVATE", "Police", "Altis",
+    [
+      "C_man_1",
+      ["U_B_GEN_Soldier_F"],
+      ["V_TacVest_blk_POLICE"],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [["9Rnd_45ACP_Mag",8]],
+      ["NULL",[]],
+      ["hgun_ACPC2_F",["acc_flashlight_pistol"]],  // handgun
+      ["NULL",[]],          // launcher
+      []                    // items
+    ],
+    [1,1,1]
+  ],
+  ["pol_i2", "Rookie Policeman", "Rookie Policemen", "PRIVATE", "Police", "Altis",
+    [
+      "C_man_1",
+      ["U_B_GEN_Soldier_F"],
+      ["V_TacVest_blk_POLICE"],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [["9Rnd_45ACP_Mag",8]],
+      ["NULL",[]],
+      ["hgun_ACPC2_F",["acc_flashlight_pistol"]],  // handgun
+      ["NULL",[]],          // launcher
+      []                    // items
+    ],
+    [2,2,2]
+  ],
+  ["pol_i3", "Policeman", "Policemen", "CORPORAL", "Police", "Altis",
+    [
+      "C_man_1",
+      ["U_B_GEN_Soldier_F"],
+      ["V_TacVest_blk_POLICE"],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [["9Rnd_45ACP_Mag",8]],
+      ["NULL",[]],
+      ["hgun_ACPC2_F",["acc_flashlight_pistol"]],  // handgun
+      ["NULL",[]],          // launcher
+      []                    // items
+    ],
+    [3,3,3]
+  ],
+  ["pol_i4", "Special Policeman", "Special Policemen", "SERGEANT", "Police", "Altis",
+    [
+      "C_man_1",
+      ["U_B_GEN_Soldier_F"],
+      ["V_TacVest_blk_POLICE"],
+      [],
+      [],
+      ["G_Balaclava_blk"],
+      [],
+      [],
+      [["30Rnd_556x45_Stanag",8],["9Rnd_45ACP_Mag",2]],
+      ["arifle_MK20_plain_F",["optic_ACO_grn","acc_flashlight"]],
+      ["hgun_ACPC2_F",["acc_flashlight_pistol"]],  // handgun
+      ["NULL",[]],          // launcher
+      []                    // items
+    ],
+    [4,4,4]
   ]
 ];
 
 UnitDefsUid = [];
 // Populate the array with UIDs for "find" powered-lookup
 {
- 	UnitDefsUid pushBack (_x select 0);
+    UnitDefsUid pushBack (_x select 0);
 } forEach UnitDefs;
