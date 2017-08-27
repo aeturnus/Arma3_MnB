@@ -121,7 +121,7 @@ while{BattleActive} do
   _aWounded = count AIBattleWounded;
   _aActive = count AIBattleUnits - _aWounded - _aDead;
 
-  hintSilent format ["Yours\n%1 active, %2 wounded, %3 dead\n\nEnemy\n%4 active, %5 wounded, %6 dead", _pActive, _pWounded, _pDead,_aActive, _aWounded, _aDead];
+  hintSilent format ["Yours\n%1 active, %2 wounded, %3 dead\n\nEnemy\n%4 active, %5 wounded, %6 dead\n\nHealth: %7%%", _pActive, _pWounded, _pDead,_aActive, _aWounded, _aDead, round((1 - (damage PlayerBattleUnit)) * 100)];
   if(_pActive == 0) then
   {
     hint "You have been defeated.";
@@ -133,8 +133,10 @@ while{BattleActive} do
     hint "You have defeated the enemy!";
     BattleActive = false;
   };
-  _wpA setWaypointPosition [(getPos (leader PlayerBattleGroup)), 0];
-  _wpP setWaypointPosition [(getPos (leader AIBattleGroup)), 0];
+  //_wpA setWaypointPosition [(getPos (leader PlayerBattleGroup)), 0];
+  //_wpP setWaypointPosition [(getPos (leader AIBattleGroup)), 0];
+  _wpA setWaypointPosition [(getPos (PlayerBattleActive select 0)), 0];
+  _wpP setWaypointPosition [(getPos (AIBattleActive select 0)), 0];
   sleep 1;
 };
 
