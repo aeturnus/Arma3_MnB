@@ -53,6 +53,7 @@ PlayerBattleActive pushBack PlayerBattleUnit;
 PlayerBattleIds pushBack 0;
 selectPlayer PlayerBattleUnit;
 PlayerBattleUnit setCustomAimCoef 10/1;
+_healthHud = execVM "HealthHud.sqf";
 
 // add units
 {
@@ -133,10 +134,15 @@ while{BattleActive} do
     hint "You have defeated the enemy!";
     BattleActive = false;
   };
-  //_wpA setWaypointPosition [(getPos (leader PlayerBattleGroup)), 0];
-  //_wpP setWaypointPosition [(getPos (leader AIBattleGroup)), 0];
-  _wpA setWaypointPosition [(getPos (PlayerBattleActive select 0)), 0];
-  _wpP setWaypointPosition [(getPos (AIBattleActive select 0)), 0];
+
+  if (count PlayerBattleActive > 0) then
+  {
+    _wpA setWaypointPosition [(getPos (PlayerBattleActive select 0)), 0];
+  }
+  if (count AIBattleActive > 0 ) then
+  {
+    _wpP setWaypointPosition [(getPos (AIBattleActive select 0)), 0];
+  }
   sleep 1;
 };
 

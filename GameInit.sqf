@@ -38,17 +38,26 @@ PlayerUnit setSpeaker PlayerSpeaker;
 
 PlayerUnits =
 [
-  /*
+  ///*
   ["altis_i4",2],
   ["altis_i3",4],
   ["altis_i2",10]
-  */
-  ["altis_i3",5]
+  //*/
+  //["pol_i1",10]
 ];
 
 AIUnits =
 [
-  ["crim_i3",15]
+  ["pol_i1",20]
 ];
 
 PlayerUnit addAction ["Begin test battle", {[[10], PlayerUnits, AIUnits, "Rodopoli"] call BattleInit;}];
+
+//setDate [2040, 3, 10, 0, 0];
+
+sleep 3;
+/*
+_ok = createDialog "MyHelloWorldDialog";
+waitUntil { !dialog };
+hint "Dialog closed.";
+*/
