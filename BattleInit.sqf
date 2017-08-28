@@ -2,6 +2,14 @@
 
 params ["_playerStats", "_playerUnits", "_aiUnits", "_loc"];
 
+// Create the pp effects
+ppRadial = ppEffectCreate ["RadialBlur",100];
+ppColor = ppEffectCreate ["ColorCorrections",1500];
+[ppRadial, ppColor] ppEffectEnable true;
+ppRadial ppEffectAdjust [0.0, 0.0, 0.0, 0.0];
+ppColor ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
+[ppRadial, ppColor] ppEffectCommit 0;
+
 PlayerBattleGroup = createGroup west;
 AIBattleGroup = createGroup east;
 
@@ -46,6 +54,7 @@ Asurg = 0;
 
 PlayerBattleUnit = ["player", PlayerBattleGroup, getMarkerPos _ploc] call GenerateUnitUid;
 PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
+PlayerBattleUnit addEventHandler ["hit", {[_this select 2] spawn PlayerHit;}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
 [PlayerBattleUnit] joinSilent PlayerBattleGroup;
 PlayerBattleUnits pushBack PlayerBattleUnit;
@@ -138,16 +147,19 @@ while{BattleActive} do
   if (count PlayerBattleActive > 0) then
   {
     _wpA setWaypointPosition [(getPos (PlayerBattleActive select 0)), 0];
-  }
+  };
   if (count AIBattleActive > 0 ) then
   {
     _wpP setWaypointPosition [(getPos (AIBattleActive select 0)), 0];
-  }
+  };
   sleep 1;
 };
 
 PlayerBattleUnit removeAllEventHandlers "killed";
+PlayerBattleUnit removeAllEventHandlers "hit";
 selectPlayer PlayerUnit;
+
+ppEffectDestroy [ppRadial, ppColor];
 
 {
   _ammo = [_x] call CountAmmo;

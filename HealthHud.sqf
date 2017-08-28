@@ -13,12 +13,10 @@
 disableSerialization;
 
 _state = 0;
-_rad = ppEffectCreate ["RadialBlur",100];
-_col = ppEffectCreate ["ColorCorrections",1500];
-[_rad, _col] ppEffectEnable true;
-_rad ppEffectAdjust [0.0, 0.0, 0.0, 0.0];
-_col ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
-[_rad, _col] ppEffectCommit 0;
+
+ppRadial ppEffectAdjust [0.0, 0.0, 0.0, 0.0];
+ppColor ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
+[ppRadial, ppColor] ppEffectCommit 0;
 while {alive player} do
 {
   _damage = damage player;
@@ -27,11 +25,11 @@ while {alive player} do
   {
     case 0:
     {
-      _rad ppEffectAdjust [0.0, 0.0, OFF_X*_health max MIN_OFF_X, OFF_Y*_health max MIN_OFF_Y];
-      _col ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
+      ppRadial ppEffectAdjust [0.0, 0.0, OFF_X*_health max MIN_OFF_X, OFF_Y*_health max MIN_OFF_Y];
+      ppColor ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
       _state = 1;
-      [_rad, _col] ppEffectCommit SET_TIME;
-      waitUntil {ppEffectCommitted _rad};
+      [ppRadial, ppColor] ppEffectCommit SET_TIME;
+      waitUntil {ppEffectCommitted ppRadial};
     };
     case 1:
     {
@@ -40,16 +38,16 @@ while {alive player} do
     };
     case 2:
     {
-      _rad ppEffectAdjust [DEG_X*_damage, DEG_Y*_damage, OFF_X*_health max MIN_OFF_X, OFF_Y*_health max MIN_OFF_Y];
-      //_col ppEffectAdjust [1,1,0,[_health,0,0,0],[_damage,_health,_health,_health],[0.299,0.587,0.114,0]];
-      _col ppEffectAdjust [1,1,0,[_health,0,0,0],[1,_health,_health,_health],[0.299,0.587,0.114,0]];
+      ppRadial ppEffectAdjust [DEG_X*_damage, DEG_Y*_damage, OFF_X*_health max MIN_OFF_X, OFF_Y*_health max MIN_OFF_Y];
+      //ppColor ppEffectAdjust [1,1,0,[_health,0,0,0],[_damage,_health,_health,_health],[0.299,0.587,0.114,0]];
+      ppColor ppEffectAdjust [1,1,0,[_health,0,0,0],[1,_health,_health,_health],[0.299,0.587,0.114,0]];
       _state = 0;
-      [_rad, _col] ppEffectCommit CLR_TIME;
-      waitUntil {ppEffectCommitted _rad};
+      [ppRadial, ppColor] ppEffectCommit CLR_TIME;
+      waitUntil {ppEffectCommitted ppRadial};
     };
   }
 };
-_rad ppEffectAdjust [0.0, 0.0, 0.0, 0.0];
-_col ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
-[_rad, _col] ppEffectCommit 0;
-ppEffectDestroy [_rad, _col];
+ppRadial ppEffectAdjust [0.0, 0.0, 0.0, 0.0];
+ppColor ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.299,0.587,0.114,0]];
+[ppRadial, ppColor] ppEffectCommit 0;
+//ppEffectDestroy [ppRadial, ppColor];
