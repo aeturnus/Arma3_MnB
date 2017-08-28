@@ -53,7 +53,7 @@ Psurg = _playerStats select 0;
 Asurg = 0;
 
 PlayerBattleUnit = ["player", PlayerBattleGroup, getMarkerPos _ploc] call GenerateUnitUid;
-PlayerBattleUnit addEventHandler ["killed", {execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
+PlayerBattleUnit addEventHandler ["killed", {[_this select 0, _this select 1, false, Parties] call LogDeath; execVM "PlayerDeath.sqf"; PlayerBattleWounded pushBack PlayerBattleUnit}];
 PlayerBattleUnit addEventHandler ["hit", {[_this select 2] spawn PlayerHit;}];
 PlayerBattleUnit addAction ["End Battle", {execVM "BattleEnd.sqf"}];
 [PlayerBattleUnit] joinSilent PlayerBattleGroup;
